@@ -49,7 +49,11 @@ export default function HomePage() {
             </p>
 
             <div className="mt-8 flex flex-col sm:flex-row gap-4">
-              <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg flex items-center justify-center gap-2 transition">
+              {/* LIHAT KAMAR */}
+              <Link
+                href="/daftar-kamar"
+                className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg flex items-center justify-center gap-2 transition"
+              >
                 Lihat Kamar
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -65,11 +69,17 @@ export default function HomePage() {
                     d="M8.25 4.5l7.5 7.5-7.5 7.5"
                   />
                 </svg>
-              </button>
+              </Link>
 
-              <button className="bg-white border border-gray-300 text-blue-700 font-semibold px-6 py-3 rounded-lg hover:bg-gray-50 transition">
+              {/* HUBUNGI KAMI (WHATSAPP) */}
+              <a
+                href="https://wa.me/6287786627900"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-white border border-gray-300 text-blue-700 font-semibold px-6 py-3 rounded-lg hover:bg-gray-50 transition text-center"
+              >
                 Hubungi Kami
-              </button>
+              </a>
             </div>
           </div>
 
