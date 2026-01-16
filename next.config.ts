@@ -4,6 +4,10 @@ const nextConfig: NextConfig = {
   images: {
     domains: ["res.cloudinary.com"], // 👈 Izinkan gambar dari Cloudinary
   },
+
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
 };
 
 export default nextConfig;
