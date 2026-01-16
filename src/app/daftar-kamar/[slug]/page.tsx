@@ -241,24 +241,24 @@ export default function DetailKamarPage() {
             <h3 className="text-xl font-semibold mb-2">Navigasi</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="/" className="hover:text-blue-600">
+                <Link href="/" className="hover:text-blue-600">
                   Beranda
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/daftar-kamar" className="hover:text-blue-600">
+                <Link href="/daftar-kamar" className="hover:text-blue-600">
                   Daftar Kamar
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/tentang-kami" className="hover:text-blue-600">
+                <Link href="/tentang-kami" className="hover:text-blue-600">
                   Tentang Kami
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/kontak" className="hover:text-blue-600">
+                <Link href="/kontak" className="hover:text-blue-600">
                   Kontak
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
