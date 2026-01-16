@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -177,16 +176,16 @@ export default function KontakPage() {
             <h3 className="text-xl font-semibold mb-2">Navigasi</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="#">Beranda</a>
+                <Link href="#">Beranda</Link>
               </li>
               <li>
-                <a href="#">Daftar Kamar</a>
+                <Link href="#">Daftar Kamar</Link>
               </li>
               <li>
-                <a href="#">Tentang Kami</a>
+                <Link href="#">Tentang Kami</Link>
               </li>
               <li>
-                <a href="#">Kontak</a>
+                <Link href="#">Kontak</Link>
               </li>
             </ul>
           </div>

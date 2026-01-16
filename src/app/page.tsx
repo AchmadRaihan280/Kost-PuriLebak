@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function HomePage() {
   return (
@@ -144,7 +145,9 @@ export default function HomePage() {
                   height={400}
                   className="w-full h-56 object-cover group-hover:scale-110 transition-transform"
                 />
-                <div className="p-4 font-semibold text-gray-600">{item.title}</div>
+                <div className="p-4 font-semibold text-gray-600">
+                  {item.title}
+                </div>
               </div>
             ))}
           </div>
@@ -181,16 +184,16 @@ export default function HomePage() {
             <h3 className="text-xl font-semibold mb-2">Navigasi</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="#">Beranda</a>
+                <Link href="#">Beranda</Link>
               </li>
               <li>
-                <a href="#">Daftar Kamar</a>
+                <Link href="#">Daftar Kamar</Link>
               </li>
               <li>
-                <a href="#">Tentang Kami</a>
+                <Link href="#">Tentang Kami</Link>
               </li>
               <li>
-                <a href="#">Kontak</a>
+                <Link href="#">Kontak</Link>
               </li>
             </ul>
           </div>
