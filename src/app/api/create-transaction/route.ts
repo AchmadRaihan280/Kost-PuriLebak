@@ -13,20 +13,20 @@ export async function POST(req: Request) {
       );
     }
 
-    // 🔑 Ambil Server Key dari .env.local
     const serverKey = process.env.MIDTRANS_SERVER_KEY;
+    const isProduction = process.env.MIDTRANS_IS_PRODUCTION === "true";
+
     if (!serverKey) {
-      console.error("❌ MIDTRANS_SERVER_KEY tidak ditemukan di .env.local");
       return NextResponse.json(
-        { error: "Server key not found" },
+        { error: "MIDTRANS_SERVER_KEY is missing" },
         { status: 500 }
       );
     }
 
-    // 🔹 Midtrans API URL (sandbox)
-    const midtransUrl = "https://app.sandbox.midtrans.com/snap/v1/transactions";
+    const midtransUrl = isProduction
+      ? "https://app.midtrans.com/snap/v1/transactions"
+      : "https://app.sandbox.midtrans.com/snap/v1/transactions";
 
-    // 🔹 Kirim request ke Midtrans API
     const response = await fetch(midtransUrl, {
       method: "POST",
       headers: {
@@ -50,23 +50,17 @@ export async function POST(req: Request) {
     });
 
     const data = await response.json();
-    console.log("📦 Midtrans Response:", data);
 
-    // Jika gagal (misalnya salah key atau salah request)
     if (!response.ok) {
       return NextResponse.json(
-        {
-          error: data.message || "Gagal membuat transaksi ke Midtrans",
-          detail: data,
-        },
+        { error: data.message || "Midtrans error", detail: data },
         { status: response.status }
       );
     }
 
-    // ✅ Return token ke frontend
     return NextResponse.json({ token: data.token });
-  } catch (err) {
-    console.error("❌ Error di API Midtrans:", err);
+  } catch (error) {
+    console.error("❌ Midtrans API Error:", error);
     return NextResponse.json(
       { error: "Internal server error" },
       { status: 500 }
